@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const courses = [
+    {
+        id: 1,
+        text: 'Curso 1'
+    },
+    {
+        id: 2,
+        text: 'Curso 2'
+    },
+    {
+        id: 3,
+        text: 'Curso 3'
+    },
+    {
+        id: 4,
+        text: 'Curso 4'
+    }
+]
+export const CourseList = () => {
+
+    return (
+        <>
+            <h1>Lista de cursos</h1>
+            <ul>
+                {courses.map((course) => (
+                    <li key={course.id}>{course.text}</li>
+                ))}
+            </ul>
+        </>
+    )
 }
 
-export default App;
+
+
