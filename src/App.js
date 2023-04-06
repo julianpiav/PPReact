@@ -26,7 +26,7 @@ export const CourseList = () => {
             <h1>Lista de cursos</h1>
             <ul>
                 {courses.map((course) => (
-                    <li key={course.id}>{course.text}</li>
+                    <li key={course.id}>{courseItem(course)}</li>
                 ))}
             </ul>
         </>
@@ -35,3 +35,19 @@ export const CourseList = () => {
 
 
 
+function courseItem(course) {
+  const { text, onDeleteClick } = course;
+
+  const handleDeleteClick = () => {
+    onDeleteClick(text.id);
+  }
+
+  return (
+    <div>
+      <p>Descripción del curso: {course.text}</p>
+      <button onClick={handleDeleteClick}>Borrar</button>
+    </div>
+  );
+}
+
+export default courseItem;
